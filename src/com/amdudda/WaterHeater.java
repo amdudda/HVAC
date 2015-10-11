@@ -38,7 +38,7 @@ public class WaterHeater extends ServiceCall {
                 "Resolved Date: " + resolvedDateString + "\n" +
                 "Resolution Description: " + resolutionString + "\n" +
                 "Base Fee: " + feeString + "\n" +
-                "City Fee: " + this.city_fee + "\n" +
+                "City Fee: $" + this.city_fee + "\n" +
                 "Total Fees: " + totalFeeString + "\n";
     }  // end toString override
 
