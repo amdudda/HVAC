@@ -11,7 +11,7 @@ public class WaterHeater extends ServiceCall {
     // inherits address, service date, resolved date, and problem description from ServiceCall.
     // also inherits resolution and fee from ServiceCall
     protected double age; // age of the heater
-    protected final int county_fee = 20;  // mandatory county fee is $20
+    protected final int city_fee = 20;  // mandatory county fee is $20
 
     // constructor
     public WaterHeater(String serviceAddress, String problemDescription, Date date, double hAge) {
@@ -27,6 +27,7 @@ public class WaterHeater extends ServiceCall {
         String resolvedDateString = ( resolvedDate == null) ? "Unresolved" : this.resolvedDate.toString();
         String resolutionString = ( this.resolution == null) ? "Unresolved" : this.resolution;
         String feeString = (fee == UNRESOLVED) ? "Unresolved" : "$" + Double.toString(fee);
+        String totalFeeString = (fee == UNRESOLVED) ? "Unresolved" : "$" + Double.toString(fee+this.city_fee);
 
         // and our output
         return "Water Heater Service Call:\n" +
@@ -37,7 +38,8 @@ public class WaterHeater extends ServiceCall {
                 "Resolved Date: " + resolvedDateString + "\n" +
                 "Resolution Description: " + resolutionString + "\n" +
                 "Base Fee: " + feeString + "\n" +
-                "City Fee: " + this.county_fee;
+                "City Fee: " + this.city_fee + "\n" +
+                "Total Fees: " + totalFeeString + "\n";
     }  // end toString override
 
     // setter and getters for class variables
@@ -49,8 +51,8 @@ public class WaterHeater extends ServiceCall {
         this.age = age;
     }
 
-    public int getCounty_fee() {
-        return county_fee;
+    public int getCity_fee() {
+        return city_fee;
     }
     // end setter and getters
 
